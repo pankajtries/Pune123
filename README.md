@@ -7,4 +7,4 @@ This repository contains source code and related materials for the Semester 6 co
 If you'd like to contribute to this repository, please follow the contributing guidelines.
 
 ### License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
