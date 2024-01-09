@@ -1,12 +1,8 @@
-input_string = "HelloWorld"
-list= []
+input_string = input("Enter a string: ")
 for char in input_string:
-    list.append(char)
-
-for i in list:
-    a=ord(i)
-    b=127
-    k=a&b
-    j=a^b
-    print("Converted value of ",i," in AND is : ",bin(k))
-    print("Converted value of ", i, " in XOR is : ", bin(j))
+    a = ord(char)
+    b = 127
+    k = a & b
+    j = a ^ b
+    print("Converted value of", char, "in AND is:", bin(k)[2:], "and:",k)
+    print("Converted value of", char, "in XOR is:", bin(j)[2:],"and:",j)
