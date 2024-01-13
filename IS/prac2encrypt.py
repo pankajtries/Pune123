@@ -1,24 +1,27 @@
 import math
+matrix=[]
+cipher=""
+kindex=0
 
-def encryptMessage(msg, key):
-    cipher = ""
-    k_indx = 0
-    msg_len = float(len(msg))
-    msg_lst = list(msg)
-    key_lst = sorted(list(key))
-    col = len(key)
-    row = int(math.ceil(msg_len / col))
-    fill_null = int((row * col) - msg_len)
-    msg_lst.extend('_' * fill_null)
-    matrix = [msg_lst[i: i + col] for i in range(0, len(msg_lst), col)]
-    for _ in range(col):
-        curr_idx = key.index(key_lst[k_indx])
-        cipher += ''.join([row[curr_idx] for row in matrix])
-        k_indx += 1
-    return cipher
+instring=input("Enter plain text: ")
+key=input("Enter key: ")
+
+msglen=len(instring)
+msglst=list(instring)
+keylist=sorted(list(key))
+col=len(key)
+row=int(math.ceil(msglen/col))
+
+fillnull=int((row*col)-msglen)
+msglst.extend('_'*fillnull)
+
+for i in range(0,len(msglst),col):
+    matrix.append(msglst[i:i+col])
 
 
-msg_to_encrypt = input("Enter the plain text: ")
-encryption_key = input("Enter the encryption key: ")
-cipher_text = encryptMessage(msg_to_encrypt, encryption_key)
-print("Encrypted Message: {}".format(cipher_text))
+for j in range(col):
+    currindex=key.index(keylist[kindex])
+    cipher+=''.join([row[currindex] for row in matrix])
+    kindex+=1
+
+print(cipher)
