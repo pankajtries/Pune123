@@ -9,12 +9,12 @@ def sort(l):
         print(l)
 
 def main():
-    list=[]
+    l=[]
     n = int(input("Enter no of students: "))
     for i in range(0, n):
         k = int(input("Enter percentage: "))
         l.append(k)
-    print(list)
-    sort(list)
+    print(l)
+    sort(l)
 
 main()

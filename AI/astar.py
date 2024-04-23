@@ -3,14 +3,12 @@ import copy
 final = [[1, 2, 3], [4, 5, 6], [7, 8, -1]]
 initial = [[2, 3, 6], [1, -1, 5], [4, 7, 8]]
 
-# Find position of blank tile
 def find_blank(state):
     for i, row in enumerate(state):
         for j, tile in enumerate(row):
             if tile == -1:
                 return i, j
 
-# Perform move in given direction
 def move(state, direction):
     blank_row, blank_col = find_blank(state)
     new_state = copy.deepcopy(state)
@@ -26,11 +24,9 @@ def move(state, direction):
         new_state = None
     return new_state
 
-# Heuristic function using Manhattan distance
 def heuristic(state, goal):
     return sum(abs(i//3 - j//3) + abs(i%3 - j%3) for i in range(3) for j in range(9) if state[i//3][i%3] != -1 and state[i//3][i%3] != goal[j//3][j%3])
 
-# A* algorithm
 def astar(initial, goal):
     queue = [(heuristic(initial, goal), 0, initial, [])]
     explored = set()

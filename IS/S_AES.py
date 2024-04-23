@@ -11,7 +11,6 @@ class SimplifiedAES(object):
     ]
 
     def __init__(self, key):
-        # Round keys: K0 = w0 + w1; K1 = w2 + w3; K2 = w4 + w5
         self.pre_round_key, self.round1_key, self.round2_key = self.key_expansion(key)
 
     def sub_word(self, word):
@@ -40,7 +39,6 @@ class SimplifiedAES(object):
         )
 
     def gf_mult(self, a, b):
-        """Galois field multiplication of a and b in GF(2^4) / x^4 + x + 1"""
         product = 0
         a = a & 0x0F
         b = b & 0x0F
@@ -56,11 +54,9 @@ class SimplifiedAES(object):
         return product
 
     def int_to_state(self, n):
-        """2-byte integer into a 4-element vector"""
         return [n >> 12 & 0xF, (n >> 4) & 0xF, (n >> 8) & 0xF, n & 0xF]
 
     def state_to_int(self, m):
-        """4-element vector into 2-byte integer"""
         return (m[0] << 12) + (m[2] << 8) + (m[1] << 4) + m[3]
 
     def add_round_key(self, s1, s2):

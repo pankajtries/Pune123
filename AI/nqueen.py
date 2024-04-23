@@ -22,7 +22,7 @@ def solveNQueensUtil(board, col, slashCode, backslashCode,
     if (col >= N):
         count += 1
         printSolution(board)
-        print()  # Separate solutions visually
+        print()
         return True
     for i in range(N):
         if (isSafe(i, col, slashCode, backslashCode,
@@ -38,15 +38,8 @@ def solveNQueensUtil(board, col, slashCode, backslashCode,
                                  slashCode, backslashCode,
                                  rowLookup, slashCodeLookup,
                                  backslashCodeLookup)):
-                # Do not reset the board here, as we want to continue exploring other solutions
-                # Resetting the board should happen outside the recursive call
-                # board[i][col] = 0
-                # rowLookup[i] = False
-                # slashCodeLookup[slashCode[i][col]] = False
-                # backslashCodeLookup[backslashCode[i][col]] = False
                 pass
 
-            # Reset board for backtracking
             board[i][col] = 0
             rowLookup[i] = False
             slashCodeLookup[slashCode[i][col]] = False
@@ -60,7 +53,7 @@ def solveNQueens(N):
     board = [[0 for i in range(N)]
              for j in range(N)]
 
-    # helper matrices
+
     slashCode = [[0 for i in range(N)]
                  for j in range(N)]
     backslashCode = [[0 for i in range(N)]
@@ -72,7 +65,7 @@ def solveNQueens(N):
     slashCodeLookup = [False] * x
     backslashCodeLookup = [False] * x
 
-    # initialize helper matrices
+
     for rr in range(N):
         for cc in range(N):
             slashCode[rr][cc] = rr + cc
@@ -89,5 +82,5 @@ def solveNQueens(N):
         print("Total solutions:", count)
         return True
 
-N = 8  # Change N to whatever value you want
+N = 6
 solveNQueens(N)
