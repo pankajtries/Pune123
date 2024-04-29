@@ -1,0 +1,53 @@
+Open the Spark directory on ubuntu or linux machine
+
+Example Directory:
+~/spark/spark-3.2.4-bin-hadoop2.7/bin$
+
+Right click on the folder and open it in terminal
+Then type the following command:
+
+>>> ./spark-shell
+
+To type code, enter following:
+
+>>> :paste
+
+And then start typing your code,
+to exit the mode press enter and then Ctrl+D
+
+
+
+// Initiate 3 Variables
+var a: Int = 69
+var b: Int = 420
+var c: Int = 390
+
+// Check if a is greater than b
+if (a > b)
+{
+	// Check if a is greater than c
+	if(a > c)
+	{
+		println("a is largest");
+	}
+
+	else
+	{
+		println("c is largest")
+	}
+
+}
+
+else
+{
+	// check if b is greater than c
+	if(b > c)
+	{
+		println("b is largest")
+	}
+
+	else
+	{
+		println("c is largest")
+	}
+}
